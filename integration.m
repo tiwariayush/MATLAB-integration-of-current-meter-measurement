@@ -1,10 +1,12 @@
 % Creating function to determine Flow rate for circular cross section
 
-function[actual_flow_rate] = cicural_integration(vmax, radius, qdiff)
+function[actual_flow_rate] = cicular_flow_rate(vmax, radius, qdiff)
 
-vrad = @(r) vmax.*(power(1-(r./rad)).^(1./9));
+n = 9 ; 
 
-qref = integral(vrad, 0, rad);
+vrad = @(r) vmax.*(power(1-(r./rad)).^(1./n)) ;
 
-actual_flow_rate = qref-qdiff;
+qref = quadgk(vrad, 0, rad) ;           % Integrating to get least possible error
+
+actual_flow_rate = qref-qdiff ;         % Getting the actual flow
 
