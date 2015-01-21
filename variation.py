@@ -3,6 +3,13 @@ import xlrd
 File = xlrd.open_workbook("velocity.xlsx")
 sheet = File.sheet_by_name('Sheet1')
 
+vmax = 0
+for i in range (1,sheet.nrows):
+  for j in range (1,sheet.cols):
+   if (sheet.cell(i,j).value > vamx):
+     vmax = sheet.cell(i,j).value
+     cordinates = [i,j]
+
 for i in range (1,sheet.nrows):
   for j in range (1,sheet.ncols):
     #import pdb;pdb.set_trace()
