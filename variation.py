@@ -1,8 +1,12 @@
 #!usr/bin/python
 
-# Importing xlrd library to read xls file from which
-# data of velocity variation would be determined 
+'''
+    Importing xlrd library to read xls file from which
+    data of velocity variation would be determined 
+'''
+
 import xlrd
+from integration import Integrate
 
 # Opening workbook of velocity data
 book = xlrd.open_workbook("velocity.xlsx")
@@ -12,7 +16,7 @@ sheet = book.sheet_by_name('Sheet1')
 
 # Creating empty list to store all velocities
 velocities = []
-
+ 
 # Looping in the data to find maximum velocity
 for i in range (1,sheet.nrows):
   for j in range (1,sheet.ncols):
@@ -39,4 +43,5 @@ for i in range (1,sheet.nrows):
     # Finding velocity as the cell where row, column is i,j
     velocity = sheet.cell(i,j).value
 
-    print velocity, width, depth
+    integ = Integrate(vmax)
+    integ.calculate_vel(width, depth, velocity)
