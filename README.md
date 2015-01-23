@@ -24,13 +24,13 @@ Steps to find velocity for rectangular cross section using power law -
    `python variation.py`
 
 3. The results would be in the sample - 
-    '''
+    ```
     Width of channel at this point is 23.04 m
     Depth of channel at this point is 0.45 m
     Experimental velocity at this point is 1.1483 m/s
     Maximum velocity is 1.2473 m/s
     Calculated velocity by power law is 1.244316215 m/s
-    '''
+    ```
 
 Thanks!!!
 Please do go through raw files and create an issue if any bug is found .
